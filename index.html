@@ -1,1 +1,20 @@
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram OAuth2 Authentication</title>
+  </head>
+  <body>
+    <h1>Instagram OAuth2 Authentication</h1>
+    <script>
+      // After the user authorizes the application, Instagram will redirect to YOUR_REDIRECT_URI
+      // with the access token as a URL fragment (#access_token=ACCESS_TOKEN).
+      // This script extracts the access token from the URL and stores it in sessionStorage.
+      var accessToken = window.location.hash.split('=')[1];
+      if (accessToken) {
+        sessionStorage.setItem('accessToken', accessToken);
+        window.location.hash = '';
+      }
+    </script>
+  </body>
+</html>
