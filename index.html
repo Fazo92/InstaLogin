@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram OAuth2 Authentication</title>
+  </head>
+  <body>
+    <h1>Instagram OAuth2 Authentication</h1>
+    <a href="https://api.instagram.com/oauth/authorize/?client_id=YOUR_CLIENT_ID&redirect_uri=https://fazo92.github.io/InstaLogin/&response_type=token&scope=YOUR_SCOPE">Click here to authenticate with Instagram</a>
+    <script>
+      // After the user authorizes the application, Instagram will redirect to the specified redirect URI
+      // with the access token as a URL fragment (#access_token=ACCESS_TOKEN).
+      // This script extracts the access token from the URL and stores it in localStorage.
+      var accessToken = window.location.hash.split('=')[1];
+      if (accessToken) {
+        localStorage.setItem('accessToken', accessToken);
+        window.location.hash = '';
+      }
+    </script>
+  </body>
+</html>
